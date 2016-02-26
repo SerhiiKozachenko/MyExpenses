@@ -1,0 +1,1 @@
+C:\Data\Projects\Phone\MyExpenses\MyExpenses\MyExpenses.csproj;arm

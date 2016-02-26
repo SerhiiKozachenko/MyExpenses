@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // Документацию по шаблону "Приложение с Pivot" см. по адресу http://go.microsoft.com/fwlink/?LinkID=391641
+using MyExpenses.StartUp;
+using MyExpenses.Views;
 
 namespace MyExpenses
 {
@@ -52,6 +54,8 @@ namespace MyExpenses
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+
+            DbConfig.Init();
 
             Frame rootFrame = Window.Current.Content as Frame;
 

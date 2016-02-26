@@ -1,25 +1,12 @@
-﻿using MyExpenses.Common;
-using MyExpenses.Data;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Windows.Input;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Graphics.Display;
-using Windows.UI.Xaml;
+﻿using System;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using MyExpenses.Common;
+using MyExpenses.Data;
 
 // Документацию по шаблону "Приложение с Pivot" см. по адресу http://go.microsoft.com/fwlink/?LinkID=391641
 
-namespace MyExpenses
+namespace MyExpenses.Views
 {
     /// <summary>
     /// Страница, на которой отображаются сведения об отдельном элементе внутри группы.
