@@ -124,27 +124,23 @@ namespace MyExpenses.MyExpenses_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
-            _typeNameTable[0] = "MyExpenses.Views.ItemPage";
+            _typeNameTable = new string[7];
+            _typeNameTable[0] = "MyExpenses.Views.PivotPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "MyExpenses.Common.NavigationHelper";
-            _typeNameTable[4] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[5] = "MyExpenses.Common.ObservableDictionary";
-            _typeNameTable[6] = "Object";
-            _typeNameTable[7] = "String";
-            _typeNameTable[8] = "MyExpenses.Views.PivotPage";
+            _typeNameTable[3] = "MyExpenses.ViewModels.MainVM";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "MyExpenses.Common.NavigationHelper";
+            _typeNameTable[6] = "Windows.UI.Xaml.DependencyObject";
 
-            _typeTable = new global::System.Type[9];
-            _typeTable[0] = typeof(global::MyExpenses.Views.ItemPage);
+            _typeTable = new global::System.Type[7];
+            _typeTable[0] = typeof(global::MyExpenses.Views.PivotPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::MyExpenses.Common.NavigationHelper);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[5] = typeof(global::MyExpenses.Common.ObservableDictionary);
-            _typeTable[6] = typeof(global::System.Object);
-            _typeTable[7] = typeof(global::System.String);
-            _typeTable[8] = typeof(global::MyExpenses.Views.PivotPage);
+            _typeTable[3] = typeof(global::MyExpenses.ViewModels.MainVM);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::MyExpenses.Common.NavigationHelper);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.DependencyObject);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -179,16 +175,8 @@ namespace MyExpenses.MyExpenses_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_ItemPage() { return new global::MyExpenses.Views.ItemPage(); }
-        private object Activate_5_ObservableDictionary() { return new global::MyExpenses.Common.ObservableDictionary(); }
-        private object Activate_8_PivotPage() { return new global::MyExpenses.Views.PivotPage(); }
-        private void MapAdd_5_ObservableDictionary(object instance, object key, object item)
-        {
-            var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
-            var newKey = (global::System.String)key;
-            var newItem = (global::System.Object)item;
-            collection.Add(newKey, newItem);
-        }
+        private object Activate_0_PivotPage() { return new global::MyExpenses.Views.PivotPage(); }
+        private object Activate_3_MainVM() { return new global::MyExpenses.ViewModels.MainVM(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -200,11 +188,11 @@ namespace MyExpenses.MyExpenses_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  MyExpenses.Views.ItemPage
+            case 0:   //  MyExpenses.Views.PivotPage
                 userType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_ItemPage;
+                userType.Activator = Activate_0_PivotPage;
+                userType.AddMemberName("ViewModel");
                 userType.AddMemberName("NavigationHelper");
-                userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -217,65 +205,46 @@ namespace MyExpenses.MyExpenses_XamlTypeInfo
                 xamlType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  MyExpenses.Common.NavigationHelper
+            case 3:   //  MyExpenses.ViewModels.MainVM
+                userType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Object
+                xamlType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  MyExpenses.Common.NavigationHelper
                 userType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Windows.UI.Xaml.DependencyObject
+            case 6:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 5:   //  MyExpenses.Common.ObservableDictionary
-                userType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_5_ObservableDictionary;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 6:   //  Object
-                xamlType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 7:   //  String
-                xamlType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 8:   //  MyExpenses.Views.PivotPage
-                userType = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_PivotPage;
-                userType.AddMemberName("NavigationHelper");
-                userType.AddMemberName("DefaultViewModel");
-                userType.SetIsLocalType();
-                xamlType = userType;
                 break;
             }
             return xamlType;
         }
 
 
-        private object get_0_ItemPage_NavigationHelper(object instance)
+        private object get_0_PivotPage_ViewModel(object instance)
         {
-            var that = (global::MyExpenses.Views.ItemPage)instance;
-            return that.NavigationHelper;
+            var that = (global::MyExpenses.Views.PivotPage)instance;
+            return that.ViewModel;
         }
-        private object get_1_ItemPage_DefaultViewModel(object instance)
+        private void set_0_PivotPage_ViewModel(object instance, object Value)
         {
-            var that = (global::MyExpenses.Views.ItemPage)instance;
-            return that.DefaultViewModel;
+            var that = (global::MyExpenses.Views.PivotPage)instance;
+            that.ViewModel = (global::MyExpenses.ViewModels.MainVM)Value;
         }
-        private object get_2_PivotPage_NavigationHelper(object instance)
+        private object get_1_PivotPage_NavigationHelper(object instance)
         {
             var that = (global::MyExpenses.Views.PivotPage)instance;
             return that.NavigationHelper;
-        }
-        private object get_3_PivotPage_DefaultViewModel(object instance)
-        {
-            var that = (global::MyExpenses.Views.PivotPage)instance;
-            return that.DefaultViewModel;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -285,28 +254,16 @@ namespace MyExpenses.MyExpenses_XamlTypeInfo
 
             switch (longMemberName)
             {
-            case "MyExpenses.Views.ItemPage.NavigationHelper":
-                userType = (global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyExpenses.Views.ItemPage");
-                xamlMember = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlMember(this, "NavigationHelper", "MyExpenses.Common.NavigationHelper");
-                xamlMember.Getter = get_0_ItemPage_NavigationHelper;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "MyExpenses.Views.ItemPage.DefaultViewModel":
-                userType = (global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyExpenses.Views.ItemPage");
-                xamlMember = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "MyExpenses.Common.ObservableDictionary");
-                xamlMember.Getter = get_1_ItemPage_DefaultViewModel;
-                xamlMember.SetIsReadOnly();
+            case "MyExpenses.Views.PivotPage.ViewModel":
+                userType = (global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyExpenses.Views.PivotPage");
+                xamlMember = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlMember(this, "ViewModel", "MyExpenses.ViewModels.MainVM");
+                xamlMember.Getter = get_0_PivotPage_ViewModel;
+                xamlMember.Setter = set_0_PivotPage_ViewModel;
                 break;
             case "MyExpenses.Views.PivotPage.NavigationHelper":
                 userType = (global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyExpenses.Views.PivotPage");
                 xamlMember = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlMember(this, "NavigationHelper", "MyExpenses.Common.NavigationHelper");
-                xamlMember.Getter = get_2_PivotPage_NavigationHelper;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "MyExpenses.Views.PivotPage.DefaultViewModel":
-                userType = (global::MyExpenses.MyExpenses_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyExpenses.Views.PivotPage");
-                xamlMember = new global::MyExpenses.MyExpenses_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "MyExpenses.Common.ObservableDictionary");
-                xamlMember.Getter = get_3_PivotPage_DefaultViewModel;
+                xamlMember.Getter = get_1_PivotPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             }

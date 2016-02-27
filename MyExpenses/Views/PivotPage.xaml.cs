@@ -1,26 +1,21 @@
-﻿// Документацию по шаблону "Приложение с Pivot" см. по адресу http://go.microsoft.com/fwlink/?LinkID=391641
-using System;
-using System.Globalization;
-using Windows.ApplicationModel.Resources;
-using Windows.UI.Xaml;
+﻿using System;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using MyExpenses.Common;
-using MyExpenses.Data;
+using MyExpenses.ViewModels;
 
 namespace MyExpenses.Views
 {
     public sealed partial class PivotPage : Page
     {
-        private const string FirstGroupName = "FirstGroup";
-        private const string SecondGroupName = "SecondGroup";
-
         private readonly NavigationHelper navigationHelper;
-        private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources");
+
+        public MainVM ViewModel { get; set; }
 
         public PivotPage()
         {
+            this.ViewModel = new MainVM();
+
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
@@ -39,15 +34,6 @@ namespace MyExpenses.Views
         }
 
         /// <summary>
-        /// Получает модель представлений для данного объекта <see cref="Page"/>.
-        /// Эту настройку можно изменить на модель строго типизированных представлений.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
-
-        /// <summary>
         /// Заполняет страницу содержимым, передаваемым в процессе навигации. Также предоставляется (при наличии) сохраненное состояние
         /// при повторном создании страницы из предыдущего сеанса.
         /// </summary>
@@ -61,8 +47,8 @@ namespace MyExpenses.Views
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             // TODO: Создание соответствующей модели данных для области проблемы, чтобы заменить пример данных
-            var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-1");
-            this.DefaultViewModel[FirstGroupName] = sampleDataGroup;
+            /*var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-1");
+            this.DefaultViewModel[FirstGroupName] = sampleDataGroup;*/
         }
 
         /// <summary>
@@ -76,53 +62,6 @@ namespace MyExpenses.Views
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
             // TODO: Сохраните здесь уникальное состояние страницы.
-        }
-
-        /// <summary>
-        /// Добавляет элемент в список при нажатии кнопки на панели приложения.
-        /// </summary>
-        private void AddAppBarButton_Click(object sender, RoutedEventArgs e)
-        {
-            string groupName = this.pivot.SelectedIndex == 0 ? FirstGroupName : SecondGroupName;
-            var group = this.DefaultViewModel[groupName] as SampleDataGroup;
-            var nextItemId = group.Items.Count + 1;
-            var newItem = new SampleDataItem(
-                string.Format(CultureInfo.InvariantCulture, "Group-{0}-Item-{1}", this.pivot.SelectedIndex + 1, nextItemId),
-                string.Format(CultureInfo.CurrentCulture, this.resourceLoader.GetString("NewItemTitle"), nextItemId),
-                string.Empty,
-                string.Empty,
-                this.resourceLoader.GetString("NewItemDescription"),
-                string.Empty);
-
-            group.Items.Add(newItem);
-
-            // Прокручиваем, чтобы новый элемент оказался видимым.
-            var container = this.pivot.ContainerFromIndex(this.pivot.SelectedIndex) as ContentControl;
-            var listView = container.ContentTemplateRoot as ListView;
-            listView.ScrollIntoView(newItem, ScrollIntoViewAlignment.Leading);
-        }
-
-        /// <summary>
-        /// Вызывается при нажатии элемента внутри раздела.
-        /// </summary>
-        private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            // Переход к соответствующей странице назначения и настройка новой страницы
-            // путем передачи необходимой информации в виде параметра навигации
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            if (!Frame.Navigate(typeof(ItemPage), itemId))
-            {
-                throw new Exception(this.resourceLoader.GetString("NavigationFailedExceptionMessage"));
-            }
-        }
-
-        /// <summary>
-        /// Загружает содержимое для второго элемента Pivot, когда он становится видимым в результате прокрутки.
-        /// </summary>
-        private async void SecondPivot_Loaded(object sender, RoutedEventArgs e)
-        {
-            var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-2");
-            this.DefaultViewModel[SecondGroupName] = sampleDataGroup;
         }
 
         #region Регистрация NavigationHelper

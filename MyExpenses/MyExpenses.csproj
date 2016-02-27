@@ -80,10 +80,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Page Include="Views\ItemPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\PivotPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,9 +99,8 @@
     <Compile Include="Enums\Currency.cs" />
     <Compile Include="Enums\TransactionType.cs" />
     <Compile Include="Infra\DataBaseHelper.cs" />
-    <Compile Include="Views\ItemPage.xaml.cs">
-      <DependentUpon>ItemPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\TransactionListVM.cs" />
+    <Compile Include="ViewModels\TransactionVM.cs" />
     <Compile Include="Views\PivotPage.xaml.cs">
       <DependentUpon>PivotPage.xaml</DependentUpon>
     </Compile>

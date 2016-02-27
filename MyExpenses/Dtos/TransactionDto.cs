@@ -5,6 +5,8 @@ namespace MyExpenses.Dtos
 {
     public class TransactionDto : BaseDto
     {
+        public DateTime Date { get; set; }
+
         public String TypeStr { get; set; }
 
         [SQLite.Ignore]

@@ -55,9 +55,6 @@
     <AppxPackagedFile Include="C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\Views\ItemPage.xbf">
-      <PackagePath>Views\ItemPage.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\Views\PivotPage.xbf">
       <PackagePath>Views\PivotPage.xbf</PackagePath>
     </AppxPackagedFile>

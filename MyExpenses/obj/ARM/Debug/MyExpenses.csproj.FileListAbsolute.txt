@@ -1,5 +1,4 @@
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\App.xbf
-C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\Views\ItemPage.xbf
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\Views\PivotPage.xbf
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\MyExpenses.xr.xml
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\MyExpenses.exe
@@ -9,17 +8,13 @@ C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\AppxManifest.xml
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\MyExpenses.build.appxrecipe
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\App.g.i.cs
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\App.g.cs
-C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\ItemPage.g.i.cs
-C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\ItemPage.g.cs
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\PivotPage.g.i.cs
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\PivotPage.g.cs
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\XamlTypeInfo.g.cs
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\XamlSaveStateFile.xml
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\App.xaml
-C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\ItemPage.xaml
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\PivotPage.xaml
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\App.xbf
-C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\ItemPage.xbf
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\PivotPage.xbf
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\MyExpenses.exe
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\MyExpenses.pdb
