@@ -31,3 +31,8 @@ C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\qualifiers.txt
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\qualifiers.txt.intermediate
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\Views\AddDialog.xbf
+C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\AddDialog.g.i.cs
+C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\AddDialog.g.cs
+C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\AddDialog.xaml
+C:\Data\Projects\Phone\MyExpenses\MyExpenses\obj\ARM\Debug\Views\AddDialog.xbf

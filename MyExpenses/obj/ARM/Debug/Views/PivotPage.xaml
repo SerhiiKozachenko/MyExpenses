@@ -72,7 +72,7 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Uid="AddAppBarButton" Label="add" Icon="Add" />
+            <AppBarButton x:Uid="AddAppBarButton" Label="add" Icon="Add" Command="{Binding Add}"/>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="SecondaryButton1" Label="secondary command 1" />
                 <AppBarButton x:Uid="SecondaryButton2" Label="secondary command 2" />

@@ -6,6 +6,7 @@ Assets\StoreLogo.scale-240.png
 Assets\WideLogo.scale-240.png
 App.xbf
 MyExpenses.xr.xml
+Views\AddDialog.xbf
 Views\PivotPage.xbf
 Common\ReadMe.txt
 DataModel\SampleData.json

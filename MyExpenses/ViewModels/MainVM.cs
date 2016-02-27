@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using MyExpenses.Common;
 using MyExpenses.Enums;
+using MyExpenses.Views;
 
 namespace MyExpenses.ViewModels
 {
@@ -10,6 +12,8 @@ namespace MyExpenses.ViewModels
         public ObservableCollection<TransactionListVM> Lists { get; set; }
 
         public TransactionListVM CurrentList { get; set; }
+
+        public RelayCommand Add { get; set; }
 
         public MainVM()
         {
@@ -50,6 +54,14 @@ namespace MyExpenses.ViewModels
                 }
             );
 
+            // actions
+            this.Add = new RelayCommand(async () =>
+            {
+                var dlg = new AddDialog();
+                var addVm = new AddVM(this.CurrentList);
+                dlg.DataContext = addVm;
+                await dlg.ShowAsync();
+            });
         }
     }
 }
