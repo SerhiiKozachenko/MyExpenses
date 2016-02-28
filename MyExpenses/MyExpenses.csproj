@@ -103,6 +103,7 @@
     <Compile Include="Enums\Currency.cs" />
     <Compile Include="Enums\TransactionType.cs" />
     <Compile Include="Infra\DataBaseHelper.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\AddVM.cs" />
     <Compile Include="ViewModels\TransactionListVM.cs" />
     <Compile Include="ViewModels\TransactionVM.cs" />

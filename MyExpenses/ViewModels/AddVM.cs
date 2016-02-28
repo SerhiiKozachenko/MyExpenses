@@ -38,17 +38,15 @@ namespace MyExpenses.ViewModels
                         var amtStr = this.Amount.Replace('.', ',');
                         amt = Decimal.Parse(amtStr);
                     }
-                    
-                    this.currentList.Transactions.Add(
-                        new TransactionVM()
-                        {
-                            Amount = amt,
-                            Currency = IsUAH ? Currency.UAH.ToString() : IsUSD ? Currency.USD.ToString() : Currency.EUR.ToString(),
-                            Date = DateTime.Now,
-                            Purpose = Purpose,
-                            Type = this.Income ? TransactionType.Income.ToString() : TransactionType.Outcome.ToString()
-                        }
-                    );
+
+                    this.currentList.AddTransaction(new TransactionVM()
+                    {
+                        Amount = amt,
+                        Currency = IsUAH ? Currency.UAH.ToString() : IsUSD ? Currency.USD.ToString() : Currency.EUR.ToString(),
+                        Date = DateTime.Now,
+                        Purpose = Purpose,
+                        Type = this.Income ? TransactionType.Income.ToString() : TransactionType.Outcome.ToString()
+                    });
                 }
                 catch (Exception)
                 {
