@@ -1,12 +1,16 @@
 ﻿using System;
 using MyExpenses.Common;
+using MyExpenses.Dtos;
 using MyExpenses.Enums;
+using SQLite;
 
 namespace MyExpenses.ViewModels
 {
     public class AddVM
     {
         private TransactionListVM currentList;
+
+        private DataBaseHelper dataBaseHelper = new DataBaseHelper();
 
         public Boolean Income { get; set; }
 
@@ -39,13 +43,28 @@ namespace MyExpenses.ViewModels
                         amt = Decimal.Parse(amtStr);
                     }
 
+                    Currency currency = IsUAH ? Currency.UAH : IsUSD ? Currency.USD : Currency.EUR;
+
+                    TransactionType type = this.Income ? TransactionType.Income : TransactionType.Outcome;
+                    var transactionDto = new TransactionDto
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Amount = amt,
+                        CurrencyStr = currency.ToString(),
+                        Date = DateTime.Now,
+                        Purpose = this.Purpose,
+                        TypeStr = type.ToString()
+                    };
+                    dataBaseHelper.InsertTransaction(transactionDto);
+
                     this.currentList.AddTransaction(new TransactionVM()
                     {
-                        Amount = amt,
-                        Currency = IsUAH ? Currency.UAH.ToString() : IsUSD ? Currency.USD.ToString() : Currency.EUR.ToString(),
-                        Date = DateTime.Now,
-                        Purpose = Purpose,
-                        Type = this.Income ? TransactionType.Income.ToString() : TransactionType.Outcome.ToString()
+                        Id = transactionDto.Id,
+                        Amount = transactionDto.Amount,
+                        Currency = currency.ToString(),
+                        Date = transactionDto.Date,
+                        Purpose = transactionDto.Purpose,
+                        Type = type.ToString()
                     });
                 }
                 catch (Exception)

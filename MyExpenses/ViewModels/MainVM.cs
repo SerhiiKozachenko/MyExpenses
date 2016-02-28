@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
 using MyExpenses.Common;
 using MyExpenses.Enums;
 using MyExpenses.Views;
+using SQLite;
 
 namespace MyExpenses.ViewModels
 {
     public class MainVM
     {
+        private DataBaseHelper dataBaseHelper = new DataBaseHelper();
+
         public ObservableCollection<TransactionListVM> Lists { get; set; }
 
         public TransactionListVM CurrentList { get; set; }
@@ -28,8 +33,61 @@ namespace MyExpenses.ViewModels
             // If there are some data for the first pivot use it
             // if no then just create empty and save it
 
+            // latest first
+            var modelLists = dataBaseHelper.GetTransactions()
+                            .GroupBy(x => new {x.Date.Year, x.Date.Month})
+                            .OrderByDescending(x => x.Key.Year).ThenByDescending(x => x.Key.Month)
+                            .Select(groupByYearAndMonth => new TransactionListVM()
+            {
+                Title = new DateTime(
+                    groupByYearAndMonth.Key.Year,
+                    groupByYearAndMonth.Key.Month, 1)
+                        .ToString("MMMM yyyy", CultureInfo.InvariantCulture), 
+                Transactions = new ObservableCollection<TransactionVM>(
+                        groupByYearAndMonth.Select(x => new TransactionVM()
+                        {
+                            Id = x.Id,
+                            Amount = x.Amount,
+                            Currency = x.CurrencyStr,
+                            Date = x.Date,
+                            Purpose = x.Purpose,
+                            Type = x.TypeStr
+                        })
+                    )
+            }).ToList();
 
-            this.Lists = new ObservableCollection<TransactionListVM>(
+            // add curent month as start lists if not exists
+            if (modelLists.Count > 0)
+            {
+                var latestTransaction = modelLists.First().Transactions.First();
+                if (latestTransaction.Date.Year < DateTime.Now.Year
+                    ||
+                    (latestTransaction.Date.Year == DateTime.Now.Year &&
+                     latestTransaction.Date.Month < DateTime.Now.Month))
+                {
+                    modelLists.Add(
+                        new TransactionListVM()
+                        {
+                            Title = DateTime.Now.ToString("MMMM yyyy", CultureInfo.InvariantCulture),
+                            Transactions = new ObservableCollection<TransactionVM>()
+                        }
+                    );
+                }
+            }
+            else
+            {
+                modelLists.Add(
+                    new TransactionListVM()
+                    {
+                        Title = DateTime.Now.ToString("MMMM yyyy", CultureInfo.InvariantCulture),
+                        Transactions = new ObservableCollection<TransactionVM>()
+                    }
+                );
+            }
+
+            this.Lists = new ObservableCollection<TransactionListVM>(modelLists);
+
+            /*this.Lists = new ObservableCollection<TransactionListVM>(
                 new List<TransactionListVM>
                 {
                     // pivot for January 2016
@@ -58,7 +116,7 @@ namespace MyExpenses.ViewModels
                         )
                     }
                 }
-            );
+            );*/
 
             // actions
             this.Add = new RelayCommand(async () =>
@@ -81,6 +139,7 @@ namespace MyExpenses.ViewModels
 
             this.Delete = new RelayCommand<TransactionVM>((transaction) =>
             {
+                this.dataBaseHelper.DeleteTransaction(transaction.Id);
                 this.CurrentList.RemoveTransaction(transaction);
             });
         }

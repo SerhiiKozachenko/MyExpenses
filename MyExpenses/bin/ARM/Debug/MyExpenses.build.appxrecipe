@@ -49,9 +49,6 @@
     <AppxPackagedFile Include="C:\Data\Projects\Phone\MyExpenses\MyExpenses\Common\ReadMe.txt">
       <PackagePath>Common\ReadMe.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Data\Projects\Phone\MyExpenses\MyExpenses\DataModel\SampleData.json">
-      <PackagePath>DataModel\SampleData.json</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Data\Projects\Phone\MyExpenses\MyExpenses\bin\ARM\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>

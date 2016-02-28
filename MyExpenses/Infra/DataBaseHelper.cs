@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MyExpenses.Dtos;
 using MyExpenses.StartUp;
@@ -23,6 +25,39 @@ namespace SQLite
             catch
             {
                 return false;
+            }
+        }
+
+        public List<TransactionDto> GetTransactions()
+        {
+            var result = new List<TransactionDto>();
+            using (var db = new SQLiteConnection(DbConfig.DB_PATH))
+            {
+                result = db.Table<TransactionDto>().ToList<TransactionDto>();
+            }
+
+            return result;
+        }
+
+        public void InsertTransaction(TransactionDto transaction)
+        {
+            using (var db = new SQLiteConnection(DbConfig.DB_PATH))
+            {
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(transaction);
+                });
+            }
+        }
+
+        public void DeleteTransaction(String id)
+        {
+            using (var db = new SQLiteConnection(DbConfig.DB_PATH))
+            {
+                db.RunInTransaction(() =>
+                {
+                    db.Execute(string.Format("delete from TransactionDto where Id='{0}'", id));
+                });
             }
         }
 

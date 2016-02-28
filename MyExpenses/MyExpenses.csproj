@@ -97,7 +97,6 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="DataModel\SampleDataSource.cs" />
     <Compile Include="Dtos\BaseDto.cs" />
     <Compile Include="Dtos\TransactionDto.cs" />
     <Compile Include="Enums\Currency.cs" />
@@ -140,7 +139,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataModel\SampleData.json" />
     <PRIResource Include="Strings\ru-RU\Resources.resw">
       <SubType>Designer</SubType>
     </PRIResource>
