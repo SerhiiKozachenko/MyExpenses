@@ -32,7 +32,14 @@
                             <ContentControl Content="{Binding Type}" FontSize="16" Margin="5,0,0,0" />
                             <ContentControl Content="{Binding Amount}" FontSize="16" Margin="5,0,0,0" />
                         </StackPanel>-->
-                        <StackPanel Margin="10,0,0,10">
+                        <StackPanel x:ConnectionId='1' Margin="10,0,0,10"                               >
+                            <FlyoutBase.AttachedFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Text="Details" />
+                                    <MenuFlyoutItem Text="Edit" />
+                                    <MenuFlyoutItem Text="Delete" />
+                                </MenuFlyout>
+                            </FlyoutBase.AttachedFlyout>
                             <TextBlock
                                     Text="{Binding Title}"
                                     TextWrapping="Wrap"

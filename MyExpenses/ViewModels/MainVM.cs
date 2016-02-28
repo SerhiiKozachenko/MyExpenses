@@ -15,6 +15,12 @@ namespace MyExpenses.ViewModels
 
         public RelayCommand Add { get; set; }
 
+        public RelayCommand Details { get; set; }
+
+        public RelayCommand Edit { get; set; }
+
+        public RelayCommand Delete { get; set; }
+
         public MainVM()
         {
             // Pivot items are lists of transactions per each month/year
@@ -61,6 +67,21 @@ namespace MyExpenses.ViewModels
                 var addVm = new AddVM(this.CurrentList);
                 dlg.DataContext = addVm;
                 await dlg.ShowAsync();
+            });
+
+            this.Details = new RelayCommand(() =>
+            {
+                
+            });
+
+            this.Edit = new RelayCommand(() =>
+            {
+
+            });
+
+            this.Delete = new RelayCommand(() =>
+            {
+                
             });
         }
     }

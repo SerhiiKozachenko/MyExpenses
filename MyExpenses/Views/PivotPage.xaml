@@ -32,7 +32,14 @@
                             <ContentControl Content="{Binding Type}" FontSize="16" Margin="5,0,0,0" />
                             <ContentControl Content="{Binding Amount}" FontSize="16" Margin="5,0,0,0" />
                         </StackPanel>-->
-                        <StackPanel Margin="10,0,0,10">
+                        <StackPanel Margin="10,0,0,10" Holding="ListViewItem_Holding">
+                            <FlyoutBase.AttachedFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Text="Details" Command="{Binding Details}"/>
+                                    <MenuFlyoutItem Text="Edit" Command="{Binding Edit}"/>
+                                    <MenuFlyoutItem Text="Delete" Command="{Binding Delete}" CommandParameter="{Binding Mode=OneWay}"/>
+                                </MenuFlyout>
+                            </FlyoutBase.AttachedFlyout>
                             <TextBlock
                                     Text="{Binding Title}"
                                     TextWrapping="Wrap"

@@ -1,5 +1,8 @@
 ﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using MyExpenses.Common;
 using MyExpenses.ViewModels;
@@ -62,6 +65,14 @@ namespace MyExpenses.Views
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
             // TODO: Сохраните здесь уникальное состояние страницы.
+        }
+
+        private void ListViewItem_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+            FrameworkElement senderElement = sender as FrameworkElement;
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(senderElement);
+
+            flyoutBase.ShowAt(senderElement);
         }
 
         #region Регистрация NavigationHelper
