@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    x:Name="Page"
     DataContext="{Binding ViewModel, RelativeSource={RelativeSource Self}}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
@@ -26,18 +27,12 @@
                     ContinuumNavigationTransitionInfo.ExitElementContainer="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!--<StackPanel Margin="10,0,0,10"  Orientation="Horizontal">
-                            <ContentControl Content="{Binding Purpose}" FontSize="16" />
-                            <ContentControl Content="{Binding Date}" FontSize="16" Margin="5,0,0,0" />
-                            <ContentControl Content="{Binding Type}" FontSize="16" Margin="5,0,0,0" />
-                            <ContentControl Content="{Binding Amount}" FontSize="16" Margin="5,0,0,0" />
-                        </StackPanel>-->
                         <StackPanel x:ConnectionId='1' Margin="10,0,0,10"                               >
                             <FlyoutBase.AttachedFlyout>
                                 <MenuFlyout>
-                                    <MenuFlyoutItem Text="Details" />
-                                    <MenuFlyoutItem Text="Edit" />
-                                    <MenuFlyoutItem Text="Delete" />
+                                    <MenuFlyoutItem Text="Details" Command="{Binding DataContext.Details, ElementName=Page}" CommandParameter="{Binding}"/>
+                                    <MenuFlyoutItem Text="Edit" Command="{Binding DataContext.Edit, ElementName=Page}" CommandParameter="{Binding}"/>
+                                    <MenuFlyoutItem Text="Delete" Command="{Binding DataContext.Delete, ElementName=Page}" CommandParameter="{Binding}"/>
                                 </MenuFlyout>
                             </FlyoutBase.AttachedFlyout>
                             <TextBlock

@@ -12,6 +12,10 @@
     <RootPropertyPathName Name="SecondaryTitle" />
     <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="Transactions" />
+    <RootPropertyPathName Name="DataContext" />
+    <RootPropertyPathName Name="Delete" />
+    <RootPropertyPathName Name="Edit" />
+    <RootPropertyPathName Name="Details" />
     <RootPropertyPathName Name="Description" />
     <RootPropertyPathName Name="Lists" />
     <RootPropertyPathName Name="CurrentList" />
@@ -28,6 +32,7 @@
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
       <RootProperty Name="RelativeSource" />
+      <RootProperty Name="ElementName" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="VerticalAlignment" />
@@ -102,6 +107,8 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
       <RootProperty Name="Text" />
+      <RootProperty Name="Command" />
+      <RootProperty Name="CommandParameter" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="HeaderTemplate" />

@@ -33,6 +33,12 @@ namespace MyExpenses.ViewModels
             this.OnPropertyChanged("SecondaryTitle");
         }
 
+        public void RemoveTransaction(TransactionVM transaction)
+        {
+            this.Transactions.Remove(transaction);
+            this.OnPropertyChanged("SecondaryTitle");
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

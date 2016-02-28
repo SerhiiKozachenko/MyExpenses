@@ -19,7 +19,7 @@ namespace MyExpenses.ViewModels
 
         public RelayCommand Edit { get; set; }
 
-        public RelayCommand Delete { get; set; }
+        public RelayCommand<TransactionVM> Delete { get; set; }
 
         public MainVM()
         {
@@ -79,9 +79,9 @@ namespace MyExpenses.ViewModels
 
             });
 
-            this.Delete = new RelayCommand(() =>
+            this.Delete = new RelayCommand<TransactionVM>((transaction) =>
             {
-                
+                this.CurrentList.RemoveTransaction(transaction);
             });
         }
     }
