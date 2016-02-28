@@ -34,7 +34,7 @@ namespace MyExpenses.ViewModels
         {
             get
             {
-                return string.Format("{0}: {1}", Date.ToString("D"), Purpose);
+                return string.Format("{0}: {1}", Purpose, Date.ToString("D"));
             }
         }
     }

@@ -2,6 +2,9 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Add" />
+    <RootPropertyPathName Name="IsEUR" />
+    <RootPropertyPathName Name="IsUSD" />
+    <RootPropertyPathName Name="IsUAH" />
     <RootPropertyPathName Name="Income" />
     <RootPropertyPathName Name="Purpose" />
     <RootPropertyPathName Name="Amount" />
@@ -29,6 +32,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Children" />
+      <RootProperty Name="Orientation" />
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
@@ -37,9 +41,16 @@
       <RootProperty Name="Text" />
       <RootEvent Name="Loaded" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
+    <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
+      <RootProperty Name="OffContent" />
+      <RootProperty Name="OnContent" />
+      <RootProperty Name="IsOn" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RadioButton">
+      <RootProperty Name="GroupName" />
       <RootProperty Name="Content" />
       <RootProperty Name="IsChecked" />
+      <RootProperty Name="MinWidth" />
     </RootType>
     <RootType FullName="MyExpenses.Views.AddDialog" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">

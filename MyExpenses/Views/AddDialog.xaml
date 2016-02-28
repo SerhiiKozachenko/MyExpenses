@@ -16,7 +16,14 @@
         
         <TextBox Header="Purpose" Text="{Binding Purpose, Mode=TwoWay}"/>
         
-        <CheckBox Content="Income?" IsChecked="{Binding Income, Mode=TwoWay}"/>
+        <!--<CheckBox Content="Income?" IsChecked="{Binding Income, Mode=TwoWay}"/>-->
+        <ToggleSwitch OffContent="Outcome" OnContent="Income" IsOn="{Binding Income, Mode=TwoWay}"/>
+        <StackPanel Orientation="Horizontal">
+            <RadioButton GroupName="Currency" Content="UAH" IsChecked="{Binding IsUAH, Mode=TwoWay}" MinWidth="143"/>
+            <RadioButton GroupName="Currency" Content="USD" IsChecked="{Binding IsUSD, Mode=TwoWay}" MinWidth="143"/>
+            <RadioButton GroupName="Currency" Content="EUR" IsChecked="{Binding IsEUR, Mode=TwoWay}" MinWidth="143"/>
+        </StackPanel>
+        
         
     </StackPanel>
     
